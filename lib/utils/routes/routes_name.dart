@@ -7,6 +7,7 @@ class RoutesName {
 
   //home screen routes name
   static const String home = 'home_sceen';
+  static const String dashboard = 'dashboard';
   static const String createLeads = 'create_leads';
   static const String leadsList = 'leads_list';
   static const String dealDoneView = 'deal_done_view';

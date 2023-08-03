@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:partners_leads/model/arguments.dart';
 import 'package:partners_leads/res/components/audio_player.dart';
 import 'package:partners_leads/res/components/image_viewer.dart';
+import 'package:partners_leads/view/dashboard.dart';
 import 'package:partners_leads/view/group_view.dart';
 import 'package:partners_leads/utils/routes/routes_name.dart';
 import 'package:partners_leads/view/add_followup_view.dart';
@@ -85,6 +86,9 @@ class Routes {
       case RoutesName.changePassword:
         return MaterialPageRoute(
             builder: (BuildContext context) => const Changepassword());
+      case RoutesName.dashboard:
+              return MaterialPageRoute(
+                  builder: (BuildContext context) => const DashboardView());
 
       default:
         return MaterialPageRoute(builder: (_) {
