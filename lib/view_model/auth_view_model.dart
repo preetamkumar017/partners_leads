@@ -88,7 +88,7 @@ class AuthViewModel with ChangeNotifier {
                 MyStaticValue.status.toString() == null)) {
           Navigator.pushReplacementNamed(context, RoutesName.refral);
         } else {
-          Navigator.pushReplacementNamed(context, RoutesName.leadsList);
+          Navigator.pushReplacementNamed(context, RoutesName.dashboard);
         }
       } else if (value.code == 201) {
         MyAlert.deviceRequest(context, data);
