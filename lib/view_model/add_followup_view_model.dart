@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:partners_leads/data/response/api_response.dart';
 import 'package:partners_leads/model/result_model.dart';
-import 'package:partners_leads/respository/leads_repository.dart';
+import 'package:partners_leads/repository/leads_repository.dart';
 import 'package:partners_leads/utils/routes/routes_name.dart';
 import 'package:partners_leads/utils/utils.dart';
 

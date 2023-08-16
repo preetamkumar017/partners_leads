@@ -191,7 +191,7 @@ class _DashboardViewState extends State<DashboardView> {
                                       style: FlutterFlowTheme.of(context).displayMedium,
                                     ),
                                     Text(
-                                      'Done Lead List',
+                                      'Total Deal Done',
                                       style: FlutterFlowTheme.of(context).displaySmall,
                                     ),
                                   ],

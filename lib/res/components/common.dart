@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart' as intl;
 
 class SeekBar extends StatefulWidget {
   final Duration duration;
@@ -195,5 +196,9 @@ String getGreeting() {
   } else {
     return 'Good Evening!';
   }
+}
+String formatNumber(double number) {
+  final intl.NumberFormat formatter = intl.NumberFormat('##,##,##,##0', 'en_US');
+  return formatter.format(number);
 }
 

@@ -5,7 +5,7 @@ import 'package:partners_leads/data/response/api_response.dart';
 import 'package:partners_leads/model/followup_details_model.dart';
 import 'package:partners_leads/model/leads_model.dart';
 import 'package:partners_leads/model/leads_with_group_model.dart';
-import 'package:partners_leads/respository/leads_repository.dart';
+import 'package:partners_leads/repository/leads_repository.dart';
 import 'package:partners_leads/utils/routes/routes_name.dart';
 import 'package:partners_leads/utils/utils.dart';
 import 'package:partners_leads/view_model/user_view_model.dart';

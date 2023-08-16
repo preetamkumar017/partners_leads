@@ -1,13 +1,13 @@
 import 'package:partners_leads/view_model/services/static_value.dart';
 
 class AppUrl {
-  // static var baseUrl = 'http://192.168.1.4/uk_app/android_api/' ;
+  static var baseUrl = 'http://192.168.1.4/uk_app/android_api/' ;
   // static var baseUrl = 'http://192.168.1.4/uk_app/' ;
   //
   // static var imageUrl = 'https://192.168.1.4/uk_app/uploads/' ;
   // static var audioUrl = 'https://192.168.1.4/uk_app/uploads/audio/' ;
 
-  static var baseUrl = 'https://ukcdesigner.in/uk_app/android_api/';
+  // static var baseUrl = 'https://ukcdesigner.in/uk_app/android_api/';
   static var imageUrl = 'https://ukcdesigner.in/uk_app/uploads/';
   static var audioUrl = 'https://ukcdesigner.in/uk_app/uploads/audio/';
   static var pdfUrl   = "https://ukcdesigner.in/uk_app/pdf/pdf2/followup_partner_pdf.php?";

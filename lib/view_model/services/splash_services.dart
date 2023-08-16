@@ -59,7 +59,8 @@ class SplashServices {
         }
 
         await Future.delayed(const Duration(seconds: 3));
-        Navigator.pushReplacementNamed(context, RoutesName.dashboard,
+        Navigator.pushReplacementNamed(context,
+            RoutesName.quickCalculationListView,
             arguments: ScreenArguments(data));
       }
     }).onError((error, stackTrace) {

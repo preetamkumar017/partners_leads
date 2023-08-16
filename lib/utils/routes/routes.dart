@@ -16,6 +16,9 @@ import 'package:partners_leads/view/followup_details_view.dart';
 import 'package:partners_leads/view/leads_list.dart';
 import 'package:partners_leads/view/login_view.dart';
 import 'package:partners_leads/view/profile_view.dart';
+import 'package:partners_leads/view/quck_calc_view.dart';
+import 'package:partners_leads/view/quck_calc_view_edit.dart';
+import 'package:partners_leads/view/quick_calc_list_view.dart';
 import 'package:partners_leads/view/signp_view.dart';
 import 'package:partners_leads/view/splash_view.dart';
 
@@ -89,6 +92,15 @@ class Routes {
       case RoutesName.dashboard:
               return MaterialPageRoute(
                   builder: (BuildContext context) => const DashboardView());
+      case RoutesName.quickCalc:
+              return MaterialPageRoute(
+                  builder: (BuildContext context) => const QuickCalculationView());
+      case RoutesName.quickCalcEdit:
+              return MaterialPageRoute(
+                  builder: (BuildContext context) => const QuickCalculationEditView());
+      case RoutesName.quickCalculationListView:
+              return MaterialPageRoute(
+                  builder: (BuildContext context) => const QuickCalculationListView());
 
       default:
         return MaterialPageRoute(builder: (_) {

@@ -4,7 +4,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:partners_leads/data/response/api_response.dart';
 import 'package:partners_leads/model/dashbord_model.dart';
-import 'package:partners_leads/respository/dashbord_repository.dart';
+import 'package:partners_leads/repository/dashbord_repository.dart';
 import 'package:partners_leads/utils/routes/routes_name.dart';
 import 'package:partners_leads/utils/utils.dart';
 import 'package:partners_leads/view_model/services/static_value.dart';

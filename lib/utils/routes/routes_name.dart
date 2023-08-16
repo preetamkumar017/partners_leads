@@ -21,4 +21,7 @@ class RoutesName {
   static const String refral = 'add_refral_view';
   static const String changePassword = 'change_password';
   static const String groupList = 'group_list';
+  static const String quickCalc = 'quickCalc';
+  static const String quickCalcEdit = 'quickCalcEdit';
+  static const String quickCalculationListView = 'quickCalculationListView';
 }

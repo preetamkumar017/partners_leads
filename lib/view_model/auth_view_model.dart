@@ -6,7 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:partners_leads/model/auth_model.dart';
 import 'package:partners_leads/res/components/my_alert.dart';
-import 'package:partners_leads/respository/auth_repository.dart';
+import 'package:partners_leads/repository/auth_repository.dart';
 import 'package:partners_leads/utils/routes/routes_name.dart';
 import 'package:partners_leads/utils/utils.dart';
 import 'package:partners_leads/view_model/services/static_value.dart';

@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Partners Leads',
         theme: ThemeData(
+
           brightness: Brightness.light,
           primaryColor: const Color(0xFF00BCD4),
           primaryColorDark: const Color(0xff0097A7),

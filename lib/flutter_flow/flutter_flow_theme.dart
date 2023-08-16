@@ -16,8 +16,8 @@ abstract class FlutterFlowTheme {
     return darkMode == null
         ? ThemeMode.system
         : darkMode
-            ? ThemeMode.dark
-            : ThemeMode.light;
+        ? ThemeMode.dark
+        : ThemeMode.light;
   }
 
   static void saveThemeMode(ThemeMode mode) => mode == ThemeMode.system
@@ -68,6 +68,12 @@ abstract class FlutterFlowTheme {
   late Color whiteicon;
   late Color whitebordercolor;
   late Color shadowcolor;
+  late Color icon3;
+  late Color icon3background;
+  late Color icon4background;
+  late Color icon4;
+  late Color iconbackground;
+  late Color bordercolor2;
 
   @Deprecated('Use displaySmallFamily instead')
   String get title1Family => displaySmallFamily;
@@ -171,6 +177,12 @@ class LightModeTheme extends FlutterFlowTheme {
   late Color whiteicon = Color(0xFFFFFFFF);
   late Color whitebordercolor = Color(0xFFFFFFFF);
   late Color shadowcolor = Color(0x33000000);
+  late Color icon3 = Color(0xFF27C499);
+  late Color icon3background = Color(0xFFADFFF5);
+  late Color icon4background = Color(0xFFFFC1CB);
+  late Color icon4 = Color(0xFFE21C3D);
+  late Color iconbackground = Color(0xFFF1F4F8);
+  late Color bordercolor2 = Color(0xFFF1F4F8);
 }
 
 abstract class Typography {
@@ -213,109 +225,109 @@ class ThemeTypography extends Typography {
 
   String get displayLargeFamily => 'Poppins';
   TextStyle get displayLarge => GoogleFonts.getFont(
-        'Poppins',
-        color: theme.highlightcolor,
-        fontWeight: FontWeight.w600,
-        fontSize: 14.0,
-      );
+    'Poppins',
+    color: theme.highlightcolor,
+    fontWeight: FontWeight.w600,
+    fontSize: 14.0,
+  );
   String get displayMediumFamily => 'Poppins';
   TextStyle get displayMedium => GoogleFonts.getFont(
-        'Poppins',
-        color: theme.whitetext,
-        fontWeight: FontWeight.w600,
-        fontSize: 20.0,
-      );
+    'Poppins',
+    color: theme.whitetext,
+    fontWeight: FontWeight.w600,
+    fontSize: 20.0,
+  );
   String get displaySmallFamily => 'Poppins';
   TextStyle get displaySmall => GoogleFonts.getFont(
-        'Poppins',
-        color: theme.whitetext,
-        fontWeight: FontWeight.normal,
-        fontSize: 11.0,
-      );
+    'Poppins',
+    color: theme.whitetext,
+    fontWeight: FontWeight.normal,
+    fontSize: 11.0,
+  );
   String get headlineLargeFamily => 'Poppins';
   TextStyle get headlineLarge => GoogleFonts.getFont(
-        'Poppins',
-        color: theme.highlightcolor,
-        fontWeight: FontWeight.normal,
-        fontSize: 10.0,
-      );
+    'Poppins',
+    color: theme.highlightcolor,
+    fontWeight: FontWeight.normal,
+    fontSize: 10.0,
+  );
   String get headlineMediumFamily => 'Poppins';
   TextStyle get headlineMedium => GoogleFonts.getFont(
-        'Poppins',
-        color: theme.secondaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 22.0,
-      );
+    'Poppins',
+    color: theme.secondaryText,
+    fontWeight: FontWeight.w600,
+    fontSize: 22.0,
+  );
   String get headlineSmallFamily => 'Poppins';
   TextStyle get headlineSmall => GoogleFonts.getFont(
-        'Poppins',
-        color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 20.0,
-      );
+    'Poppins',
+    color: theme.primaryText,
+    fontWeight: FontWeight.w600,
+    fontSize: 20.0,
+  );
   String get titleLargeFamily => 'Poppins';
   TextStyle get titleLarge => GoogleFonts.getFont(
-        'Poppins',
-        color: theme.primaryText,
-        fontWeight: FontWeight.w500,
-        fontSize: 22.0,
-      );
+    'Poppins',
+    color: theme.primaryText,
+    fontWeight: FontWeight.w500,
+    fontSize: 22.0,
+  );
   String get titleMediumFamily => 'Poppins';
   TextStyle get titleMedium => GoogleFonts.getFont(
-        'Poppins',
-        color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 18.0,
-      );
+    'Poppins',
+    color: theme.primaryText,
+    fontWeight: FontWeight.w600,
+    fontSize: 18.0,
+  );
   String get titleSmallFamily => 'Poppins';
   TextStyle get titleSmall => GoogleFonts.getFont(
-        'Poppins',
-        color: theme.secondaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 16.0,
-      );
+    'Poppins',
+    color: theme.secondaryText,
+    fontWeight: FontWeight.w600,
+    fontSize: 16.0,
+  );
   String get labelLargeFamily => 'Poppins';
   TextStyle get labelLarge => GoogleFonts.getFont(
-        'Poppins',
-        color: theme.primaryText,
-        fontWeight: FontWeight.w500,
-        fontSize: 14.0,
-      );
+    'Poppins',
+    color: theme.primaryText,
+    fontWeight: FontWeight.w500,
+    fontSize: 14.0,
+  );
   String get labelMediumFamily => 'Poppins';
   TextStyle get labelMedium => GoogleFonts.getFont(
-        'Poppins',
-        color: theme.primaryText,
-        fontWeight: FontWeight.w500,
-        fontSize: 12.0,
-      );
+    'Poppins',
+    color: theme.primaryText,
+    fontWeight: FontWeight.w500,
+    fontSize: 12.0,
+  );
   String get labelSmallFamily => 'Poppins';
   TextStyle get labelSmall => GoogleFonts.getFont(
-        'Poppins',
-        color: theme.primaryText,
-        fontWeight: FontWeight.w500,
-        fontSize: 11.0,
-      );
+    'Poppins',
+    color: theme.primaryText,
+    fontWeight: FontWeight.w500,
+    fontSize: 11.0,
+  );
   String get bodyLargeFamily => 'Poppins';
   TextStyle get bodyLarge => GoogleFonts.getFont(
-        'Poppins',
-        color: theme.primaryText,
-        fontWeight: FontWeight.normal,
-        fontSize: 16.0,
-      );
+    'Poppins',
+    color: theme.primaryText,
+    fontWeight: FontWeight.normal,
+    fontSize: 16.0,
+  );
   String get bodyMediumFamily => 'Poppins';
   TextStyle get bodyMedium => GoogleFonts.getFont(
-        'Poppins',
-        color: theme.primaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 14.0,
-      );
+    'Poppins',
+    color: theme.primaryText,
+    fontWeight: FontWeight.w600,
+    fontSize: 14.0,
+  );
   String get bodySmallFamily => 'Poppins';
   TextStyle get bodySmall => GoogleFonts.getFont(
-        'Poppins',
-        color: theme.secondaryText,
-        fontWeight: FontWeight.w600,
-        fontSize: 14.0,
-      );
+    'Poppins',
+    color: theme.secondaryText,
+    fontWeight: FontWeight.w600,
+    fontSize: 14.0,
+  );
 }
 
 class DarkModeTheme extends FlutterFlowTheme {
@@ -357,6 +369,12 @@ class DarkModeTheme extends FlutterFlowTheme {
   late Color whiteicon = Color(0xFF7AF425);
   late Color whitebordercolor = Color(0xFFE94C3A);
   late Color shadowcolor = Color(0xFF001FE7);
+  late Color icon3 = Color(0xFFE4623D);
+  late Color icon3background = Color(0xFFAC8BB0);
+  late Color icon4background = Color(0xFF3DB0E9);
+  late Color icon4 = Color(0xFFFDB6BA);
+  late Color iconbackground = Color(0xFF428C00);
+  late Color bordercolor2 = Color(0xFF5A7942);
 }
 
 extension TextStyleHelper on TextStyle {
@@ -373,23 +391,23 @@ extension TextStyleHelper on TextStyle {
   }) =>
       useGoogleFonts
           ? GoogleFonts.getFont(
-              fontFamily!,
-              color: color ?? this.color,
-              fontSize: fontSize ?? this.fontSize,
-              letterSpacing: letterSpacing ?? this.letterSpacing,
-              fontWeight: fontWeight ?? this.fontWeight,
-              fontStyle: fontStyle ?? this.fontStyle,
-              decoration: decoration,
-              height: lineHeight,
-            )
+        fontFamily!,
+        color: color ?? this.color,
+        fontSize: fontSize ?? this.fontSize,
+        letterSpacing: letterSpacing ?? this.letterSpacing,
+        fontWeight: fontWeight ?? this.fontWeight,
+        fontStyle: fontStyle ?? this.fontStyle,
+        decoration: decoration,
+        height: lineHeight,
+      )
           : copyWith(
-              fontFamily: fontFamily,
-              color: color,
-              fontSize: fontSize,
-              letterSpacing: letterSpacing,
-              fontWeight: fontWeight,
-              fontStyle: fontStyle,
-              decoration: decoration,
-              height: lineHeight,
-            );
+        fontFamily: fontFamily,
+        color: color,
+        fontSize: fontSize,
+        letterSpacing: letterSpacing,
+        fontWeight: fontWeight,
+        fontStyle: fontStyle,
+        decoration: decoration,
+        height: lineHeight,
+      );
 }
