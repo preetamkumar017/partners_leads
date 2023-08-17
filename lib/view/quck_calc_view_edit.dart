@@ -2,6 +2,7 @@ import 'dart:developer';
 
 import 'package:get/get.dart';
 import 'package:partners_leads/data/response/status.dart';
+import 'package:partners_leads/model/QuickCalcListModel.dart';
 import 'package:partners_leads/view_model/price_list_view_controller.dart';
 import 'package:partners_leads/view_model/quick_calc_view_model.dart';
 
@@ -11,7 +12,9 @@ import 'package:flutter/material.dart';
 import 'package:partners_leads/model/price_rate_model.dart';
 
 class QuickCalculationEditView extends StatefulWidget {
-  const QuickCalculationEditView({Key? key}) : super(key: key);
+  Records data;
+
+  QuickCalculationEditView(this.data, {super.key});
 
   @override
   _QuickCalculationEditViewState createState() => _QuickCalculationEditViewState();
@@ -22,16 +25,26 @@ class _QuickCalculationEditViewState extends State<QuickCalculationEditView>  wi
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final qcController  = Get.put(QuickCalcController());
   final plController  = Get.put(PriceListController());
+  final _formKey = GlobalKey<FormState>();
 
   late AnimationController controller;
 
   @override
   void initState() {
     plController.getData();
-
     controller = BottomSheet.createAnimationController(this);
     controller.duration = const Duration(milliseconds: 1000);
     controller.reverseDuration =  const Duration(milliseconds: 750);
+
+    qcController.mobile.value.text = widget.data.mobile ?? "";
+    qcController.width.value.text = widget.data.width ?? "";
+    qcController.length.value.text = widget.data.length ?? "";
+    qcController.floorNumber.value.text = widget.data.floor ?? "";
+    qcController.rate.value.text = widget.data.rate ?? "";
+    qcController.id.value = widget.data.id ?? "";
+
+
+
     super.initState();
   }
 
@@ -169,7 +182,7 @@ class _QuickCalculationEditViewState extends State<QuickCalculationEditView>  wi
                         child:  Align(
                           alignment: const AlignmentDirectional(0, 0),
                           child: TextFormField(
-                            // controller: qcController.textController1,
+                            controller: qcController.mobile.value,
                             obscureText: false,
                             keyboardType: TextInputType.phone,
                             decoration: InputDecoration(
@@ -183,8 +196,12 @@ class _QuickCalculationEditViewState extends State<QuickCalculationEditView>  wi
                             ),
                             style: FlutterFlowTheme.of(context).labelLarge,
                             maxLines: null,
-                            // validator: qcController.textController1Validator
-                            //     .asValidator(context),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter some text';
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ),
@@ -258,7 +275,7 @@ class _QuickCalculationEditViewState extends State<QuickCalculationEditView>  wi
                         child:  Align(
                           alignment: const AlignmentDirectional(0, 0),
                           child: TextFormField(
-                            // controller: qcController.textController2,
+                            controller: qcController.length.value,
                             obscureText: false,
                             keyboardType: TextInputType.number,
                             decoration: InputDecoration(
@@ -274,8 +291,12 @@ class _QuickCalculationEditViewState extends State<QuickCalculationEditView>  wi
                             ),
                             style: FlutterFlowTheme.of(context).labelLarge,
                             maxLines: null,
-                            // validator: qcController.textController2Validator
-                            //     .asValidator(context),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter some text';
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ),
@@ -349,7 +370,7 @@ class _QuickCalculationEditViewState extends State<QuickCalculationEditView>  wi
                         child:  Align(
                           alignment: const AlignmentDirectional(0, 0),
                           child: TextFormField(
-                            // controller: qcController.textController2,
+                            controller: qcController.width.value,
                             obscureText: false,
                             keyboardType: TextInputType.number,
                             decoration: InputDecoration(
@@ -365,8 +386,12 @@ class _QuickCalculationEditViewState extends State<QuickCalculationEditView>  wi
                             ),
                             style: FlutterFlowTheme.of(context).labelLarge,
                             maxLines: null,
-                            // validator: qcController.textController2Validator
-                            //     .asValidator(context),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter some text';
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ),
@@ -456,8 +481,12 @@ class _QuickCalculationEditViewState extends State<QuickCalculationEditView>  wi
                             ),
                             style: FlutterFlowTheme.of(context).labelLarge,
                             maxLines: null,
-                            // validator: qcController.textController3Validator
-                            //     .asValidator(context),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter some text';
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ),
@@ -548,8 +577,12 @@ class _QuickCalculationEditViewState extends State<QuickCalculationEditView>  wi
                             ),
                             style: FlutterFlowTheme.of(context).labelLarge,
                             maxLines: null,
-                            // validator: qcController.textController4Validator
-                            //     .asValidator(context),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter some text';
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ),
@@ -560,7 +593,10 @@ class _QuickCalculationEditViewState extends State<QuickCalculationEditView>  wi
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),
                 child: FFButtonWidget(
-                  onPressed: () {
+                  onPressed: () async {
+                      // if (_formKey.currentState!.validate()) {
+                        await qcController.insertCalcData(context);
+                      // }
                   },
                   text: 'Calculate Now',
                   options: FFButtonOptions(

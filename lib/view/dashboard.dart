@@ -1,7 +1,5 @@
-import 'dart:developer';
 
 import 'package:partners_leads/data/response/status.dart';
-import 'package:partners_leads/model/dashbord_model.dart';
 import 'package:partners_leads/res/components/common.dart';
 import 'package:partners_leads/res/components/drawer.dart';
 import 'package:partners_leads/utils/routes/routes_name.dart';
@@ -10,7 +8,6 @@ import 'package:partners_leads/view_model/services/static_value.dart';
 import 'package:provider/provider.dart';
 
 import '/flutter_flow/flutter_flow_theme.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class DashboardView extends StatefulWidget {
@@ -59,7 +56,7 @@ class _DashboardViewState extends State<DashboardView> {
                   children: [
                     IconButton(onPressed: (){
                       scaffoldKey.currentState!.openDrawer();
-                    }, icon: Icon(Icons.menu)),
+                    }, icon: const Icon(Icons.menu)),
 
                     Row(
                       mainAxisSize: MainAxisSize.max,
@@ -280,6 +277,45 @@ class _DashboardViewState extends State<DashboardView> {
                             padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
                             child: Text(
                               'Client List',
+                              style: FlutterFlowTheme.of(context).labelMedium,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, RoutesName.quickCalculationListView);
+                  },
+                  child: Container(
+                    width: MediaQuery.sizeOf(context).width * 0.85,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      borderRadius: BorderRadius.circular(15),
+                      border: Border.all(
+                        color: FlutterFlowTheme.of(context).bordercolor,
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsetsDirectional.fromSTEB(10, 10, 10, 10),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.list,
+                            color:
+                            FlutterFlowTheme.of(context).secondaryiconcolor,
+                            size: 15,
+                          ),
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(10, 0, 0, 0),
+                            child: Text(
+                              'Estimate Cost',
                               style: FlutterFlowTheme.of(context).labelMedium,
                             ),
                           ),

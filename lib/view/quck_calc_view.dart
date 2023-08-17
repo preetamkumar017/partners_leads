@@ -1,14 +1,11 @@
 import 'dart:developer';
-
 import 'package:get/get.dart';
 import 'package:partners_leads/data/response/status.dart';
 import 'package:partners_leads/view_model/price_list_view_controller.dart';
 import 'package:partners_leads/view_model/quick_calc_view_model.dart';
-
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:partners_leads/model/price_rate_model.dart';
 
 class QuickCalculationView extends StatefulWidget {
   const QuickCalculationView({Key? key}) : super(key: key);
@@ -24,11 +21,11 @@ class _QuickCalculationViewState extends State<QuickCalculationView>  with Ticke
   final plController  = Get.put(PriceListController());
 
   late AnimationController controller;
+  final _formKey = GlobalKey<FormState>();
 
   @override
   void initState() {
     plController.getData();
-
     controller = BottomSheet.createAnimationController(this);
     controller.duration = const Duration(milliseconds: 1000);
     controller.reverseDuration =  const Duration(milliseconds: 750);
@@ -169,7 +166,7 @@ class _QuickCalculationViewState extends State<QuickCalculationView>  with Ticke
                         child:  Align(
                           alignment: const AlignmentDirectional(0, 0),
                           child: TextFormField(
-                            // controller: qcController.textController1,
+                            controller: qcController.mobile.value,
                             obscureText: false,
                             keyboardType: TextInputType.phone,
                             decoration: InputDecoration(
@@ -183,8 +180,12 @@ class _QuickCalculationViewState extends State<QuickCalculationView>  with Ticke
                             ),
                             style: FlutterFlowTheme.of(context).labelLarge,
                             maxLines: null,
-                            // validator: qcController.textController1Validator
-                            //     .asValidator(context),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter some text';
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ),
@@ -258,7 +259,7 @@ class _QuickCalculationViewState extends State<QuickCalculationView>  with Ticke
                         child:  Align(
                           alignment: const AlignmentDirectional(0, 0),
                           child: TextFormField(
-                            // controller: qcController.textController2,
+                            controller: qcController.length.value,
                             obscureText: false,
                             keyboardType: TextInputType.number,
                             decoration: InputDecoration(
@@ -274,8 +275,12 @@ class _QuickCalculationViewState extends State<QuickCalculationView>  with Ticke
                             ),
                             style: FlutterFlowTheme.of(context).labelLarge,
                             maxLines: null,
-                            // validator: qcController.textController2Validator
-                            //     .asValidator(context),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter some text';
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ),
@@ -349,7 +354,7 @@ class _QuickCalculationViewState extends State<QuickCalculationView>  with Ticke
                         child:  Align(
                           alignment: const AlignmentDirectional(0, 0),
                           child: TextFormField(
-                            // controller: qcController.textController2,
+                            controller: qcController.width.value,
                             obscureText: false,
                             keyboardType: TextInputType.number,
                             decoration: InputDecoration(
@@ -365,8 +370,12 @@ class _QuickCalculationViewState extends State<QuickCalculationView>  with Ticke
                             ),
                             style: FlutterFlowTheme.of(context).labelLarge,
                             maxLines: null,
-                            // validator: qcController.textController2Validator
-                            //     .asValidator(context),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter some text';
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ),
@@ -456,8 +465,12 @@ class _QuickCalculationViewState extends State<QuickCalculationView>  with Ticke
                             ),
                             style: FlutterFlowTheme.of(context).labelLarge,
                             maxLines: null,
-                            // validator: qcController.textController3Validator
-                            //     .asValidator(context),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter some text';
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ),
@@ -548,8 +561,12 @@ class _QuickCalculationViewState extends State<QuickCalculationView>  with Ticke
                             ),
                             style: FlutterFlowTheme.of(context).labelLarge,
                             maxLines: null,
-                            // validator: qcController.textController4Validator
-                            //     .asValidator(context),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter some text';
+                              }
+                              return null;
+                            },
                           ),
                         ),
                       ),
@@ -560,7 +577,10 @@ class _QuickCalculationViewState extends State<QuickCalculationView>  with Ticke
               Padding(
                 padding: const EdgeInsetsDirectional.fromSTEB(0, 20, 0, 20),
                 child: FFButtonWidget(
-                  onPressed: () {
+                  onPressed: () async {
+                    // if (_formKey.currentState!.validate()) {
+                      await qcController.insertCalcData(context);
+                    // }
                   },
                   text: 'Calculate Now',
                   options: FFButtonOptions(

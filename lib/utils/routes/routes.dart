@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:partners_leads/model/QuickCalcListModel.dart';
 import 'package:partners_leads/model/arguments.dart';
 import 'package:partners_leads/res/components/audio_player.dart';
 import 'package:partners_leads/res/components/image_viewer.dart';
@@ -18,6 +19,7 @@ import 'package:partners_leads/view/login_view.dart';
 import 'package:partners_leads/view/profile_view.dart';
 import 'package:partners_leads/view/quck_calc_view.dart';
 import 'package:partners_leads/view/quck_calc_view_edit.dart';
+import 'package:partners_leads/view/quick_calc_details.dart';
 import 'package:partners_leads/view/quick_calc_list_view.dart';
 import 'package:partners_leads/view/signp_view.dart';
 import 'package:partners_leads/view/splash_view.dart';
@@ -96,11 +98,17 @@ class Routes {
               return MaterialPageRoute(
                   builder: (BuildContext context) => const QuickCalculationView());
       case RoutesName.quickCalcEdit:
+
+        Records args = settings.arguments as Records;
               return MaterialPageRoute(
-                  builder: (BuildContext context) => const QuickCalculationEditView());
+                  builder: (BuildContext context) =>  QuickCalculationEditView(args));
       case RoutesName.quickCalculationListView:
               return MaterialPageRoute(
                   builder: (BuildContext context) => const QuickCalculationListView());
+      case RoutesName.quickCalcDetails:
+        Records args = settings.arguments as Records;
+              return MaterialPageRoute(
+                  builder: (BuildContext context) =>  QuickCalcDetailsView(args));
 
       default:
         return MaterialPageRoute(builder: (_) {

@@ -101,6 +101,10 @@ class _QuickCalculationListViewState extends State<QuickCalculationListView> wit
                                     onLongPress: () {
                                       change(data.id ?? "0",data);
                                     },
+                                    onTap: () {
+
+                                      Navigator.pushNamed(context, RoutesName.quickCalcDetails,arguments: data);
+                                    },
                                     child: Container(
                                       width: double.infinity,
                                       decoration: BoxDecoration(
@@ -342,6 +346,13 @@ class _QuickCalculationListViewState extends State<QuickCalculationListView> wit
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () async {
+         await Navigator.pushNamed(context, RoutesName.quickCalc);
+          qc.calcListData();
+        },
+      ),
     );
   }
   void change(String id,Records data)
@@ -364,8 +375,10 @@ class _QuickCalculationListViewState extends State<QuickCalculationListView> wit
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 InkWell(
-                  onTap: () {
-                    Navigator.pushNamed(context, RoutesName.quickCalcEdit);
+                  onTap: () async {
+                    Navigator.pop(context);
+                     await Navigator.pushNamed(context, RoutesName.quickCalcEdit,arguments: data);
+                    qc.calcListData();
                   },
                   child: Row(
                     children: [
